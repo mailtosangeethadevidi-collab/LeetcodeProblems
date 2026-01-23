@@ -4,13 +4,13 @@ class Solution {
        if(s.length()!=t.length()){
         return false;
        } 
-      int hash[]=new int[27];
+      int hash[]=new int[26];
       for(int i=0;i<s.length();i++){
-        hash[s.charAt(i)-'a'+1]++;
-        hash[t.charAt(i)-'a'+1]--;
+        hash[s.charAt(i)-'a']++;
+        hash[t.charAt(i)-'a']--;
       }
       for(int i=0;i<26;i++){
-        if(hash[i]>0){
+        if(hash[i]!=0){
             return false;
         }
       }
