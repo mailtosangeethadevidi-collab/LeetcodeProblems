@@ -4,10 +4,8 @@ class Solution {
          int sumcarry=0;
          ListNode dummy=new ListNode(0);
          ListNode addnode=dummy;
-         ListNode prev1=l1;
-         ListNode prev2=l2;
-         while(prev1!=null&& prev2!=null){
-            int sum=prev1.val+prev2.val+carry;
+         while(l1!=null&& l2!=null){
+            int sum=l1.val+l2.val+carry;
             if(sum>=10){
                 sumcarry=sum%10;
                 carry=sum/10;
@@ -19,15 +17,15 @@ class Solution {
              addnode.next=n;
               carry=0;
             }
-            prev1=prev1.next;
-            prev2=prev2.next;
+            l1=l1.next;
+            l2=l2.next;
             addnode=addnode.next;
          }
-         if(prev1!=null){
+         if(l1!=null){
              //int carry=0;
            int sumcarr=0;
-       while(prev1!=null){
-            int sum=prev1.val+carry;
+       while(l1!=null){
+            int sum=l1.val+carry;
             if(sum>=10){
                 sumcarry=sum%10;
                 carry=sum/10;
@@ -39,14 +37,14 @@ class Solution {
                 carry=0;
                 addnode.next=n; 
             }
-            prev1=prev1.next;
+            l1=l1.next;
             addnode=addnode.next;
   }           
          }
-         else if(prev2!=null){
+         else if(l2!=null){
                 int sumcarr=0;
-       while(prev2!=null){
-            int sum=prev2.val+carry;
+       while(l2!=null){
+            int sum=l2.val+carry;
             if(sum>=10){
                 sumcarry=sum%10;
                 carry=sum/10;
@@ -58,7 +56,7 @@ class Solution {
                 carry=0;
                 addnode.next=n; 
             }
-            prev2=prev2.next;
+            l2=l2.next;
             addnode=addnode.next;
          }
 
