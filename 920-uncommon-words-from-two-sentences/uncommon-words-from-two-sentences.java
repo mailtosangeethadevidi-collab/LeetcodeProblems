@@ -24,8 +24,8 @@ class Solution {
         if(map2.get(two[i])==1&&map1.get(two[i])==null)
           res[index++]=two[i];
     }
-    
-    return Arrays.copyOf(res,index);
-    
+    String re[]=new String[index];
+    re=Arrays.copyOf(res,index);
+    return re;
     }
 }
