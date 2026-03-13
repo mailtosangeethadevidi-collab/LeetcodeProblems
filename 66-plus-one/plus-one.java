@@ -4,8 +4,6 @@ class Solution {
         List<Integer> l=new ArrayList<>();
        // int i=0;
         int carry=1;
-        if(digits[digits.length-1]>=9)
-          carry=1;
      for( int i=digits.length-1;i>0;i--){
         if(digits[i]==9&&carry==1){
          l.add(0);
