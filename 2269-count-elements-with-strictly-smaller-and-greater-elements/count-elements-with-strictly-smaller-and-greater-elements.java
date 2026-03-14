@@ -1,7 +1,7 @@
 class Solution {
     public int countElements(int[] nums) {
        int count=0;
-      Arrays.sort(nums);
+      //Arrays.sort(nums);
        for(int i=0;i<nums.length;i++){
         int flag1=0;
         int flag2=0;
