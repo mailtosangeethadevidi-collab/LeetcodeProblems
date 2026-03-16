@@ -15,11 +15,12 @@ class Solution {
     public static int sumfun(int n,int k ){
         if(k==0)
           return n;
-        int sum=0;
+       int sum=0;
         while(n>0){
             sum+=(n%10);
             n/=10;
         }
+
      return  sumfun(sum,--k); 
     }
         
