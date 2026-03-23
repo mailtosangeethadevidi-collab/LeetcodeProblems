@@ -3,7 +3,8 @@ class Solution {
        Arrays.sort(g);
        Arrays.sort(s);
        int i=0,j=0,count=0;
-       while(i<g.length && j<s.length){
+       int gl=g.length,sl=s.length;
+       while(i<gl && j<sl){
         if(s[j]>=g[i]){
             count++;
             i++;
