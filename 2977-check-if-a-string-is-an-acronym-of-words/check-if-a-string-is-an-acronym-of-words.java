@@ -4,8 +4,7 @@ class Solution {
         StringBuilder sb = new StringBuilder();
       // ListIterator li=words.listIterator();
        for(int i=0;i<words.size();i++){
-        String str=words.get(i);
-        sb.append(str.charAt(0));
+        sb.append(words.get(i).charAt(0));
         if(sb.length()>s.length())
           return false;
        }
