@@ -2,9 +2,9 @@ import java.util.Arrays;
 class Solution {
     public int maximumProduct(int[] nums) {
         Arrays.sort(nums);
-        int n=nums.length;
-        int num1=nums[0]*nums[1]*nums[n-1];
-        int num2=nums[n-1]*nums[n-2]*nums[n-3];
+       // int n=nums.length;
+        int num1=nums[0]*nums[1]*nums[nums.length-1];
+        int num2=nums[nums.length-1]*nums[nums.length-2]*nums[nums.length-3];
         if(num1>num2){
             return num1;
         }
