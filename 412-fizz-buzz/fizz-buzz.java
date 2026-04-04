@@ -1,6 +1,6 @@
 class Solution {
     public List<String> fizzBuzz(int n) {
-        List<String> l=new ArrayList<>();
+        List<String> l=new LinkedList<>();
         for(int i=1;i<=n;i++){
             if(i%3==0 && i%5==0)
             l.add("FizzBuzz");
