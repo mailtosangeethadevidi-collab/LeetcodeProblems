@@ -8,8 +8,10 @@ class Solution {
             l.add("Fizz");
             else if(i%5==0)
             l.add("Buzz");
-            else
-             l.add(i+"");
+            else{
+                String s=String.valueOf(i);
+             l.add(s);
+            }
         }
         return l;
     }
