@@ -1,17 +1,18 @@
 import java.util.Arrays;
 class Solution {
     public int removeDuplicates(int[] nums) {
-        int i=0,j=1,num=nums[0];
-        while(j<nums.length){
-            while(j<nums.length&&nums[j]==num){
-                j++;
-            }
-            if(j<nums.length){
-                i++;
-                nums[i]=nums[j];
-                num=nums[j];
-            }
+       int j=1;
+       int i=0;
+       while(j<nums.length){
+        if(nums[j]==nums[i]){
+            j++;
         }
-        return i+1;
+        else{
+            i++;
+            nums[i]=nums[j];
+        }
+
+       }
+       return i+1;
         }
     }
