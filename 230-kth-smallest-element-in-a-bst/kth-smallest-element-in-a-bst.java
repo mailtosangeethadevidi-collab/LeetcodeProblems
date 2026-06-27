@@ -23,6 +23,10 @@ class Solution {
         
     
     public int inorder(TreeNode root,int k){
+        if(ans!=-1){
+            return ans;
+        }
+        
         if(root!=null){
             inorder(root.left,k);
             count++;
@@ -31,6 +35,7 @@ class Solution {
             }
             inorder(root.right,k);
         }
+        
         return ans;
     }
 }
