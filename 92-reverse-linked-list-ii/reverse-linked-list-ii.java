@@ -14,9 +14,7 @@ class Solution {
             return head;
         }
        int pos=1;
-       //ListNode last=head;
-      ListNode last=head;
-       ListNode lastend=head;
+     
        ListNode prev=null;
         ListNode lastprev=head;
        ListNode cur=head;
@@ -26,7 +24,7 @@ class Solution {
            if(pos==left){
            
             lastprev=prev;
-            last=cur;
+           
            while(cur!=null&&pos<=right){
            ListNode newnode = new ListNode(cur.val);
            if(tail==null){
