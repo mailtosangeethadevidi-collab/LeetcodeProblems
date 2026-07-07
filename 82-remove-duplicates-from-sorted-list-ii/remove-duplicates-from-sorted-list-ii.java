@@ -23,22 +23,19 @@ class Solution {
        }
        prev=cur;
        cur=cur.next;
-       while(cur!=null){
-        if(cur.next==null){
-            if(cur.val!=prev.val){
-                temp.next=new ListNode(cur.val);
-                temp=temp.next;
-            }
-        }
-        else{
+       while(cur.next!=null){
             if(cur.val!=prev.val && cur.val!=cur.next.val){
-                temp.next=new ListNode(cur.val);
+                temp.next=cur;
                 temp=temp.next;
             }
-        }
         prev=cur;
         cur=cur.next;
        }
+       if(cur.val!=prev.val){
+        temp.next=cur;
+        temp=temp.next;
+       }
+       temp.next=null;
        return res.next;
     }
 }
