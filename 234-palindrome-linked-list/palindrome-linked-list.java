@@ -15,30 +15,26 @@ class Solution {
         }
         ListNode slow=head;
         ListNode fast=head;
+       
+        ListNode prev=null;
+      
         while(fast!=null && fast.next!=null){
+            ListNode temp=slow;
             slow=slow.next;
             fast=fast.next.next;
+
+            temp.next=prev;
+            prev=temp;
         }
-       ListNode h=head;
-       ListNode cur=head;
-       ListNode prev=slow;
-       while(h!=slow){
-         h=h.next;
-        cur.next=prev;
-        prev=cur;
        
-        cur=h;
-       }
         if(fast!=null){
             slow=slow.next;
         }
-       while(slow!=null){
-        if(prev.val!=slow.val){
-            return false;
-        }
+       while(prev!=null&&slow!=null&&slow.val==prev.val){
+      
         prev=prev.next;
         slow=slow.next;
        }
-      return true; 
+      return slow==null; 
     }
 }
