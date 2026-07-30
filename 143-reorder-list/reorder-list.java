@@ -8,37 +8,58 @@
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
- import java.util.Deque;
- import java.util.ArrayDeque;
+ 
 class Solution {
-    public void reorderList(ListNode head) {
+    public
+     void reorderList(ListNode head) {
         if(head.next==null){
-            return ;
+            return;
         }
-        Deque<ListNode> dq = new ArrayDeque<>();
-        ListNode temp=head;
-        while(temp!=null){
-            dq.add(temp);
-            temp=temp.next;
-        }
-       int n = dq.size()/2-1;
 
-       temp=new ListNode(0);
-       head=temp;
-       int length=dq.size();
-       while(n>=0){
-          temp.next=dq.pollFirst();
-          temp=temp.next;
-          temp.next=dq.pollLast();
-          temp=temp.next;
-          n--;
-       } 
-       if(length%2!=0){
-        temp.next=dq.pollFirst();
-        temp=temp.next;
-       }
-       temp.next=null;
-   
-        head=head.next;
+        ///finding the mid
+        ListNode slow=head;
+        ListNode fast=head;
+        ListNode slowPrev=null;
+        while(fast!=null&&fast.next!=null){
+            slowPrev=slow;
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+       
+       
+         slowPrev.next=null;
+       
+        // reversing the 2nd half
+
+        ListNode prev=null;
+        ListNode cur=slow;
+        ListNode temp=slow;
+       
+        while(temp!=null){
+            temp=cur.next;
+            cur.next=prev;
+            prev=cur;
+            cur=temp;
+        }
+
+
+      //pairing
+     
+     ListNode first=head;
+     ListNode second=prev;
+        while(first!=null){
+            ListNode t1=first.next;
+            ListNode t2=second.next;
+
+
+            first.next=second;
+            if(t1==null){
+                break;
+            }
+            second.next=t1;
+            first=t1;
+            second=t2;             
+        }
+      
     }
 }
