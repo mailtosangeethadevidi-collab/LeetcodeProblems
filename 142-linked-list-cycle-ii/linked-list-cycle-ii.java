@@ -11,17 +11,17 @@
  */
 public class Solution {
     public ListNode detectCycle(ListNode head) {
-        int mark=Integer.MAX_VALUE;
+       
       
        if(head==null)
         return null;
 
         while(head!=null){
            
-            if(head.val==mark){
+            if(head.val==Integer.MAX_VALUE){
                 return head;
             }
-            head.val=mark;
+            head.val=Integer.MAX_VALUE;
             head=head.next;
         }
        
