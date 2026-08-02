@@ -1,20 +1,24 @@
 class Solution {
     public boolean isHappy(int n) {
-    while(n!=1&&n!=4){
+   int slow=digitSum(n);
+   int fast=digitSum(slow);
+   while(slow!=fast){
+    slow=digitSum(slow);
+    fast=digitSum(digitSum(fast));
+    if(slow==fast){
+        break;
+    }
+   }
+   return slow==1;
+    }
+    public static int digitSum(int n){
         int sum=0;
         while(n>0){
-            int rem=n%10;
-            sum+=((rem)*(rem));
+            sum+=((n%10)*(n%10));
             n/=10;
         }
-        if(sum==4)
-          return false;
-        else if(sum==1)
-         return true;
+        return sum;
 
-       n=sum;
-    }
-    return n==1;
     }
     
 }
