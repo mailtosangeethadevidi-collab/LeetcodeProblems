@@ -2,13 +2,13 @@ class Solution {
     public int compress(char[] chars) {
         int count=1;
        
-      
+      int n =chars.length;
        int r=0;
-       if(chars.length<=1){
-        return chars.length;
+       if(n==1){
+        return n;
        }
        StringBuilder sb = new StringBuilder();
-        for(r=0;r<chars.length-1;r++){
+        for(r=0;r<n-1;r++){
             if(chars[r]==chars[r+1]){
                 count++;
             }
