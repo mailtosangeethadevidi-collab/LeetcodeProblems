@@ -4,14 +4,15 @@ class Solution {
     int l=0;
     int r=0;
     int slength=s.length();
+    char schar[]=s.toCharArray();
     if(slength==0)
       return true;
     for(char ch :t.toCharArray()){
-        char schar=s.charAt(l);
-        if(ch==schar){
+        
+        if(ch==schar[l]){
             l++;
         }
-        if(l>=slength){
+        if(l==slength){
             return true;
         }
     }
