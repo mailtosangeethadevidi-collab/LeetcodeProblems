@@ -3,17 +3,22 @@ class Solution {
        int left=0;
        int zeroCount=0;
        int right=0;
-       for(right=0;right<nums.length;right++){
+       int maxlen=0;
+       for(right=0;right<nums.length;){
            if(nums[right]==0){
             zeroCount++;
            }
-           if(zeroCount>k){
+           while(zeroCount>k){
             if(nums[left]==0){
                 zeroCount--;
             }
             left++;
            }
+           if(zeroCount<=k){
+             maxlen=Math.max(maxlen,right-left+1);
+           }
+           right++;
        } 
-       return right-left;
+       return maxlen;
     }
 }
