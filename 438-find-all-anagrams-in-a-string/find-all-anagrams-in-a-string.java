@@ -1,39 +1,44 @@
  import java.util.*;
 class Solution {
-    public List<Integer> findAnagrams(String s, String p) {
+    public List<Integer> findAnagrams(String str, String p) {
         
         List<Integer> l = new ArrayList<>();
-        char str[]=s.toCharArray();
+        char input[]=str.toCharArray();
 
-        int slen =str.length;
+        int slen =input.length;
         int plen=p.length();
         int range=slen-plen;
-
-        for(int i=0;i<=range;i++){
-
-          char arr[]=new char[26];
-          for(char ch:p.toCharArray()){
-            arr[ch-'a']+=1;
-           }
-
-           for(int j=i;j<(i+plen);j++){
-             arr[str[j]-'a']--;
-           }
-            
-            int flag=0;
-           for(int k:arr){
-            if(k!=0){
-                flag=1;
-              break;
-            }
-           }
-           if(flag==0){
-            l.add(i);
-           }
-           if(plen==slen){
+        if(slen<plen){
             return l;
-           }
         }
-       return l;     
+
+        char anag[]=new char[26];
+        for(char ch:p.toCharArray()){
+            anag[ch-'a']+=1;
+        }
+        
+        char hash[]=new char[26];
+       
+        int i=0;
+        int j=0;      
+        int count=0;
+        while(j<slen){
+            hash[input[j]-'a']++;
+           
+            if(j-i+1==plen){
+                if(Arrays.equals(hash,anag)){
+                    l.add(i);
+                }
+                
+                 hash[input[i]-'a']--;
+                 i++;
+            }
+            j++;
+           
+        }
+       
+    return l;
+      
     }
+    
 }
