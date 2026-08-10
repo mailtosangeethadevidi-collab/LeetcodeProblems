@@ -6,10 +6,17 @@ class Solution {
         Arrays.sort(nums);
         int n =nums.length;
         while(i<n){
-            j=i+1;
-            while(j<n && Math.abs(nums[i]-nums[j])<=Math.min(nums[i],nums[j])){
+            j=n-1;
+            while(i<j){
+                int diff = Math.abs(nums[i]-nums[j]) ;
+                
+                if(diff>nums[i]){
+                    j--;
+                }
+                else{
                 max=Math.max(max,nums[i]^nums[j]);
-                j++;
+               j--;
+                }
             }
             i++;
         }
