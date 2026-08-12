@@ -9,8 +9,7 @@ class Solution {
             map.put(nums[r],map.getOrDefault(nums[r],0)+1);
             while(map.get(nums[r])>k){
               map.put(nums[l],map.get(nums[l])-1);
-              l++;
-
+                l++;
             }
             max=Math.max(max,r-l+1);
             r++;
