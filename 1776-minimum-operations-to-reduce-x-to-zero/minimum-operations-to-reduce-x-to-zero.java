@@ -15,11 +15,11 @@ class Solution {
            
 
          int l=0;
-         int r=0;
+        
 
          int maxlen=-1;
          int currSum=0;
-         for(r=0;r<n;r++){
+         for(int r=0;r<n;r++){
             currSum+=nums[r];
             while( l<=r &&currSum>target){
                 currSum-=nums[l];
