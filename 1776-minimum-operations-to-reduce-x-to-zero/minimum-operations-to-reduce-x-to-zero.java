@@ -10,6 +10,10 @@ class Solution {
 
         int target=totalSum-x;
 
+        if(target==0)
+            return n;
+           
+
          int l=0;
          int r=0;
 
