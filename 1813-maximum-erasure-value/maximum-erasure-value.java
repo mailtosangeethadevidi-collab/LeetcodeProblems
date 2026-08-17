@@ -4,22 +4,22 @@ class Solution {
         int r=0;
         int maxsum=0;
         int sum=0;
-        HashMap<Integer,Integer> map = new HashMap<>();
+       
+       boolean [] seen = new boolean[10001];
         int len=nums.length;
         while(r<len){
+
            sum+=nums[r];
-           if(map.containsKey(nums[r])){
-            int newIndex=Math.max(map.get(nums[r])+1,l);
-            if(newIndex>l){
-                for(int i=l;i<newIndex;i++){
-                    sum-=nums[i];
-                }
+           while(seen[nums[r]]){
+               int leftNum=nums[l];
+               sum-=leftNum;
+               seen[leftNum]=false;
+               l++;
+                
             }
-             l=Math.max(map.get(nums[r])+1,l);
-           }
-            
-            map.put(nums[r],r);
-           
+
+           seen[nums[r]]=true;
+
             maxsum=Math.max(maxsum,sum);
              r++;
         }
