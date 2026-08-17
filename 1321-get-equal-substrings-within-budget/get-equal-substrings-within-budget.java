@@ -3,16 +3,17 @@ class Solution {
         int l=0;
         int r=0;
         int maxlen=0;
-        char srr[]=s.toCharArray();
-        char trr[]=t.toCharArray();
-        int len=srr.length;
+       
+        int len=s.length();
         int cost=0;
         while(r<len){
-            if(srr[r]!=trr[r]){
-                cost+=Math.abs(srr[r]-trr[r]);
+            char srr=s.charAt(r);
+            char trr=t.charAt(r);
+            if(srr!=trr){
+                cost+=Math.abs(srr-trr);
             }
             while(l<len && cost>maxCost){
-                cost-=Math.abs(srr[l]-trr[l]);
+                cost-=Math.abs(s.charAt(l)-t.charAt(l));
                 l++;
             }
             maxlen=Math.max(maxlen,r-l+1);
