@@ -3,19 +3,22 @@ class Solution {
         int l=0;
         int r=0;
         int maxlen=0;
-       
         int len=s.length();
-        int cost=0;
+        int cost[]=new int[len];
+
+        for(int i=0;i<len;i++){
+            cost[i]=Math.abs(s.charAt(i)-t.charAt(i));
+        }
+    
+       int c=0;
         while(r<len){
-            char srr=s.charAt(r);
-            char trr=t.charAt(r);
-            if(srr!=trr){
-                cost+=Math.abs(srr-trr);
-            }
-            while(l<len && cost>maxCost){
-                cost-=Math.abs(s.charAt(l)-t.charAt(l));
+            c+=cost[r];
+            
+            while(l<len && c>maxCost){
+               c-=cost[l];
                 l++;
             }
+            
             maxlen=Math.max(maxlen,r-l+1);
             r++;
         }
