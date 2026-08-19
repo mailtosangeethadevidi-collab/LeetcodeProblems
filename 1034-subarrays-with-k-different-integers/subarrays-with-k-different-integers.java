@@ -3,21 +3,28 @@ class Solution {
         return fun(nums,k)-fun(nums,k-1);
     }
     public static int fun(int [] nums,int k){
-        HashMap<Integer,Integer> map = new HashMap<>();
+      
         int l=0;
         int r=0;
         int len=nums.length;
+        int freq[]= new int[len+1];
         int count=0;
+        int diff=0;
         while(r<len){
-            map.put(nums[r],map.getOrDefault(nums[r],0)+1);
+          
 
-            while(map.size()>k){
+           if(freq[nums[r]]==0){
+            diff++;
+           }
 
-                int c=map.get(nums[l]);
-                map.put(nums[l],c-1);
+            freq[nums[r]]+=1;
 
-                if( c-1 == 0){
-                    map.remove(nums[l]);
+            while(diff>k){
+
+               freq[nums[l]]--;
+
+                if(freq[nums[l]]== 0){
+                   diff--;
                 }
                 l++;
 
