@@ -1,15 +1,18 @@
 class Solution {
     public int[][] matrixReshape(int[][] mat, int r, int c) {
-        if(mat.length*mat[0].length != r*c)
+        int row=mat.length;
+        int col=mat[0].length;
+        if(row*col != r*c)
           return mat;
         int matrix[][]=new int[r][c];
        
          int x=0;
          int y=0;
-         int row=0;
-         int col=0;
-            for(int i=0;i<mat.length;i++){
-            for(int j=0;j<mat[0].length;j++){
+        
+        
+        
+            for(int i=0;i<row;i++){
+            for(int j=0;j<col;j++){
              matrix[x][y++]=mat[i][j]; 
               if(y==c){
                 x++;
