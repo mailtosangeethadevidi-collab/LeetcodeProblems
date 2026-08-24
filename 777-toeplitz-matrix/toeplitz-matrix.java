@@ -2,9 +2,7 @@ class Solution {
     public boolean isToeplitzMatrix(int[][] matrix) {
         int row= matrix.length;
         int col = matrix[0].length;
-        if(row==1 || col==1){
-            return true;
-        }
+      
         for(int i=col-1;i>=0;i--){
             int value=matrix[0][i];
            
