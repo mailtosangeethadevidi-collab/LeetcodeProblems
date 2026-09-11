@@ -4,13 +4,14 @@ class Solution {
         int temp=n;
         HashMap<Integer,Integer> map=new HashMap<>();
         while(temp!=0){
-            map.put(temp%10,map.getOrDefault(temp%10,0)+1);
+            int num=temp%10;
+            map.put(num,map.getOrDefault(num,0)+1);
             temp/=10;
         }
         while(n!=0){
-
-            sum+=(n%10)*map.get(n%10);
-            map.put(n%10,0);
+             int num=n%10;
+            sum+=(num)*map.get(num);
+            map.put(num,0);
             n/=10;
             
         }
