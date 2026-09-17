@@ -1,8 +1,10 @@
 class Solution {
     public int[][] sortTheStudents(int[][] score, int k) {
+        HashMap<Integer,Integer> map = new HashMap<>();
         int temp[]=new int[score.length];
         for(int i=0;i<temp.length;i++){
             temp[i]=score[i][k];
+            map.put(temp[i],i);
         }
 
         Arrays.sort(temp);
@@ -11,7 +13,7 @@ class Solution {
 
        for(int i=score.length-1;i>=0;i--){
 
-        int index=findIndex(score,temp[i],k);
+        int index=map.get(temp[i]);
 
         for(int j=0;j<score[0].length;j++){
            res[row][j]=score[index][j];
@@ -22,13 +24,5 @@ class Solution {
        return res;
     }
 
-    public int findIndex(int [][] score,int ele,int k){
-        for(int i=0;i<score.length;i++){
-            if(score[i][k]==ele){
-                return i;
-            }
-        }
-
-        return 0;
-    }
+    
 }
