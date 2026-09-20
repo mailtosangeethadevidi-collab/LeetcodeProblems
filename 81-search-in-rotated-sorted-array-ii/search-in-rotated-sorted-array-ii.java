@@ -3,19 +3,24 @@ class Solution {
         int low=0;
         int high=nums.length-1;
         while(low<=high){
+
             int mid=(low+high)/2;
+            
             if(nums[mid]==target){
                 return true;
             }
-            if(nums[low]<=nums[mid]){  //left is sorted
-              
-               for(int i=low;i<mid;i++){
-                    if(nums[i]==target)
-                      return true;
-                }
+            // handle duplicates
 
-              if(nums[low]<=target && target<=nums[mid]){
+            if(nums[low]==nums[mid] && nums[mid]==nums[high]){
+                low++;
+                high--;
+                continue;
+            }
+
+            if(nums[low]<=nums[mid]){  //left is sorted
                
+
+              if(nums[low]<=target && target<nums[mid]){
                 high=mid-1;           // target is less than mid. so,go left
               }
               else{
@@ -24,13 +29,8 @@ class Solution {
 
             }
             else{  //right is sorted
-             for(int i=mid;i<=high;i++){
-                    if(nums[i]==target)
-                      return true;
-                }
-
-               if(nums[mid]<=target && target<=nums[high]){
-                
+                 
+               if(nums[mid]<target && target<=nums[high]){
                 //   mid is less than target. so go right
                  low=mid+1;
                }
