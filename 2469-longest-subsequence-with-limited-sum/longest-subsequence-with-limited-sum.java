@@ -1,0 +1,18 @@
+class Solution {
+    public int[] answerQueries(int[] nums, int[] queries) {
+      Arrays.sort(nums);
+      int res[]=new int[queries.length];
+      for(int i=0;i<queries.length;i++){
+        int sum=0;
+        for(int j=0;j<nums.length;j++){
+            sum+=nums[j];
+            if(sum<=queries[i]){
+                res[i]=j+1;
+            }
+            if(sum>queries[i])
+              break;
+        }
+      }
+         return res;
+    }
+}
