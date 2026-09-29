@@ -13,9 +13,8 @@ class Solution {
          else{
             local=str.substring(0,indexOfAt);
          }
-         String newLocal=local.replace(".","");
-         String newEmail=newLocal+"@"+domain;
-          uniqueEmails.add(newEmail);
+        
+          uniqueEmails.add(local.replace(".","")+"@"+domain);
 
        } 
        return uniqueEmails.size();
