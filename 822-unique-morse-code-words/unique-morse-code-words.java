@@ -3,11 +3,11 @@ class Solution {
        Set<String> set= new HashSet<>();
         String arr[]={".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."} ;
         for(int i=0;i<words.length;i++){
-            String str="";
+            StringBuilder sb = new StringBuilder();
             for(char ch :words[i].toCharArray()){
-               str+=(arr[ch-'a']);
+                sb.append(arr[ch-'a']);
             }
-            set.add(str);
+            set.add(sb.toString());
         }
         return set.size();
     }
