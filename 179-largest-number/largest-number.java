@@ -5,12 +5,9 @@ class Solution {
         int zeroCount=0;
         for(int num:nums){
             if(num!=0){
-            l.add(num+"");
-            areAllZeroes=false;
+                areAllZeroes=false;
             }
-            else{
-                zeroCount++;
-            }
+            l.add(num+"");   
         }
         if(areAllZeroes){
             return "0";
@@ -24,9 +21,7 @@ class Solution {
         for(String str:l){
             sb.append(str);
         }
-        while(zeroCount--!=0){
-            sb.append("0");
-        }
+      
         return sb.toString();
 
     }
