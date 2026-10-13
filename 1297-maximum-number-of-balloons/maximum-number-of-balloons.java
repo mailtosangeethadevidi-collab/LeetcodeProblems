@@ -9,10 +9,10 @@ class Solution {
                
             }
         }
-        System.out.println(Arrays.toString(hash));
+        // System.out.println(Arrays.toString(hash));
         minFreq=Math.min(hash['b'-'a'],Math.min(hash['a'-'a'],hash['n'-'a']));
         int freq=Math.min(hash['l'-'a'],hash['o'-'a'])/2;
-        System.out.println("freq="+freq+"minfreq"+minFreq);
+        // System.out.println("freq="+freq+"minfreq"+minFreq);
         return Math.min(minFreq,freq);
         
     }
