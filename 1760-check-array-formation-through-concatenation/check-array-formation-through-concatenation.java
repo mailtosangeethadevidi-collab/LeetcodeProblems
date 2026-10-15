@@ -2,10 +2,7 @@ class Solution {
     public boolean canFormArray(int[] arr, int[][] pieces) {
         HashMap<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < pieces.length; i++) {
-
-            for (int ele : pieces[i]) {
-                map.put(ele, i);
-            }
+           map.put(pieces[i][0],i);
 
         }
         int arrIndex = 0;
