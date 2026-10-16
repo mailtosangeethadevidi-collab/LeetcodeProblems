@@ -6,25 +6,25 @@ class Solution {
         boolean isZero=false;
         Set<String> set = new HashSet<>();
         while(l<len&&r<len){
-            char curr = word.charAt(r);
-          
+            char curr = word.charAt(r); 
             char prev = word.charAt(l);
+            
             if(Character.isLetter(curr)){
                 if(Character.isDigit(prev)){
                     String str=word.substring(l,r);
                    
                     int i=0;
-                    boolean isAllZeros=true;
+                    boolean areAllZeros=true;
                     for(char ch : str.toCharArray()){
                         if(ch-'0'>0){
                             set.add(str.substring(i));
-                            isAllZeros=false;
+                            areAllZeros=false;
                             break;
                         }
                         i++;
 
                     }
-                    if(isAllZeros){
+                    if(areAllZeros){
                         set.add("0");
                     }
                     
@@ -44,17 +44,17 @@ class Solution {
           {
              int i=0;
               String str=word.substring(l,r);
-               boolean isAllZeros=true;
+               boolean areAllZeros=true;
                     for(char ch : str.toCharArray()){
                         if(ch-'0'>0){
-                            isAllZeros=false;
+                            areAllZeros=false;
                             set.add(str.substring(i));
                             break;
                         }
                         i++;
 
                     }
-                     if(isAllZeros){
+                     if(areAllZeros){
                         set.add("0");
                     }
           }
