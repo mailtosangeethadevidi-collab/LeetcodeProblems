@@ -3,15 +3,18 @@ class Solution {
         String str=s.trim();
      char arr[] = str.toCharArray();
       int len=arr.length;
-      if((len>=2 &&arr[0]=='+' && arr[1]=='-') || len==0)
+      if(len==0)
         return 0;
-     if((len>=2 && arr[0]=='-' && arr[1]=='+'))
+      if(len>=2){
+      if((arr[0]=='+' && arr[1]=='-'))
+        return 0;
+     if(arr[0]=='-' && arr[1]=='+')
        return 0;
-        if((len>=2 && arr[0]=='-' && arr[1]=='-'))
+        if( arr[0]=='-' && arr[1]=='-')
        return 0;
-     if((len>=2 && arr[0]=='+' && arr[1]=='+'))
+     if(arr[0]=='+' && arr[1]=='+')
        return 0;
-   
+      }
       
     
        long num = 0;
