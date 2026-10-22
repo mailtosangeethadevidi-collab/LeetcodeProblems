@@ -1,6 +1,7 @@
 class Solution {
     public int myAtoi(String s) {
-     char arr[] = s.trim().toCharArray();
+        String str=s.trim();
+     char arr[] = str.toCharArray();
       int len=arr.length;
       if((len>=2 &&arr[0]=='+' && arr[1]=='-') || len==0)
         return 0;
@@ -12,17 +13,11 @@ class Solution {
        return 0;
    
       
-      int index=0;
-
-      for(index=0;index<len;index++){
-          if(arr[index]!=0 && arr[index]!='-' && arr[index]!='+')
-            break;
-      }
-      
-      if(index==len)
-         return 0;
-     
+    
        long num = 0;
+       int index=0;
+       if(arr[0]=='-'|| arr[0]=='+')
+          index=1;
        for(int i=index;i<len;i++){
 
             if(Character.isDigit(arr[i])){
