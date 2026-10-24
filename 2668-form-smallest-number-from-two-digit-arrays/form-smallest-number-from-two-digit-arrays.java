@@ -17,10 +17,7 @@ class Solution {
         }
         if(commonMin!=10)
           return commonMin;
-        if(min1<min2){
-            return min1*10+min2;
-        }
-        return min2*10+min1;
+        return Math.min(min1*10+min2,min2*10+min1);
         
     }
 }
