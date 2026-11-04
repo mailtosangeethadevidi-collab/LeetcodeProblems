@@ -15,8 +15,9 @@ class Solution {
             }
             n/=10;
         }
+        String str=sb.reverse().toString();
        if((temp+"").length()%3==0)
-         return sb.reverse().toString().substring(1);
-        return sb.reverse().toString();
+         return str.substring(1);
+        return str;
     }
 }
