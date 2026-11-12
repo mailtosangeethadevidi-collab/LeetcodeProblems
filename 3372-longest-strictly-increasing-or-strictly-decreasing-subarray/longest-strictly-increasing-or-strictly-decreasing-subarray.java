@@ -1,12 +1,12 @@
 class Solution {
     public int longestMonotonicSubarray(int[] nums) {
-       int len=nums.length;
-      if(len==1)
+       
+      if(nums.length==1)
         return 1;
       int max1=0;
       int count=1;
     //   increasing
-      for(int i=0;i<len-1;i++){
+      for(int i=0;i<nums.length-1;i++){
          if(nums[i]<nums[i+1])
            count++;
          else
@@ -19,7 +19,7 @@ class Solution {
       int max2=0;
       count=1;
     //   decreasing
-      for(int i=0;i<len-1;i++){
+      for(int i=0;i<nums.length-1;i++){
          if(nums[i]>nums[i+1])
            count++;
          else
