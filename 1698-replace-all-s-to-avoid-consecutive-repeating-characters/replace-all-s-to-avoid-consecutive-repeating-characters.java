@@ -1,6 +1,6 @@
 class Solution {
     public String modifyString(String s) {
-        StringBuilder sb = new StringBuilder(s);
+        // StringBuilder sb = new StringBuilder(s);
         char arr[]=s.toCharArray();
         int n = arr.length;
         if(arr[0]=='?'&&n==1){   
