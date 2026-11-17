@@ -1,45 +1,45 @@
 class Solution {
     public String modifyString(String s) {
         StringBuilder sb = new StringBuilder(s);
-        int n = s.length();
-        if(s.charAt(0)=='?'&&n==1){
-            
-         return "a";
+        char arr[]=s.toCharArray();
+        int n = arr.length;
+        if(arr[0]=='?'&&n==1){   
+          return "a";
         }
-        if (s.charAt(0) == '?' && n > 1) {
-            if (s.charAt(1) != 'a' && s.charAt(1)!='?')
-                sb.setCharAt(0, (char) (s.charAt(1) - 1));
+        if (arr[0] == '?' && n > 1) {
+            if (arr[1] != 'a' && arr[1]!='?')
+                arr[0]=(char) (arr[1] - 1);
             else
-                sb.setCharAt(0, 'b');
+                arr[0]='b';
         }
 
-        for (int i = 1; i < sb.length() - 1; i++) {
-            char curr = sb.charAt(i);
-            char left = sb.charAt(i - 1);
-            char right = sb.charAt(i + 1);
+        for (int i = 1; i < n - 1; i++) {
+            char curr = arr[i];
+            char left = arr[i-1];
+            char right = arr[i+1];
             if (curr == '?') {
                 if (left != 'a' && right != 'a')
-                    sb.setCharAt(i, 'a');
+                    arr[i]='a';
                 else if (left != 'b' && right != 'b') {
-                    sb.setCharAt(i, 'b');
+                   arr[i]='b';
                 } else {
-                    sb.setCharAt(i, 'c');
+                    arr[i]='c';
                 }
             }
-            System.out.println(sb.toString());
+            // System.out.println(sb.toString());
         }
-        if (sb.charAt(n - 1) == '?') {
+        if (arr[n-1] == '?') {
              
-            if (sb.charAt(n - 2) != 'a'){
-                sb.setCharAt(n - 1, (char) (sb.charAt(n - 2) - 1));
-                System.out.println("u");
+            if (arr[n-2] != 'a'){
+                arr[n-1]= (char) (arr[n-2]-1);
+                // System.out.println("u");
             }
             else
-                sb.setCharAt(n - 1, 'b');
+                arr[n-1]='b';
         }
         // System.out.println((char) (s.charAt(n - 2) - 1));
 
-        return sb.toString();
+       return new String(arr);
 
     }
 }
